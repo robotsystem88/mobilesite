@@ -1,0 +1,426 @@
+/* Вказуємо box-sizing */
+*,
+*::before,
+*::after{
+    box-sizing: border-box; /*розраховує ширину блоку влкючаючи padding i border*/
+}
+/* прибираємо внутрішні відступи */
+
+ul[class],
+ol[class] {
+    padding: 0;
+}
+/* прибираємо зовнішні відступи */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd{ 
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    scroll-behavior: smooth;/*плавна прокрутка*/
+    text-rendering: optimizeSpeed;/*промальовка-rendering тексту(optimizeSpeed - швидкість рндерінга)*/
+    line-height: 1.3;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* видалення стандартної стилізації для для всих списків ul i li, у яких є атрибут class */
+ul[class],
+ol[class]{
+    list-style: none;
+}
+
+/* спрощуємо роботу із зображеннями */
+img{
+    max-width: 100%;/*щоб зображення не збільшувались (розтягувалися) і були у своїй 100% ширині*/
+    display: block;
+}
+/* наслідуються шрифти для input i button */
+input,
+button,
+textarea,
+select{
+    font: inherit;/*inherit - успадкування шрифту*/
+}
+
+a{
+    color: #ed4c5c;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.header__wrap{
+    background: url(./img/Rectangle3.png) top center no-repeat;/*позиціонування зображення top center*/
+    background-size: cover;/*Масштабує зображення, як можна більше зі збереженням пропорцій*/
+}
+.header__wrap__color{
+    background: linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%);
+    padding: 50px 0 200px 0;/*верхній і нижній вшдступи до МЕНЮ*/
+}
+.wrap{
+    max-width: 1110px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.header__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;/*центрування елементів по вертикалі*/
+    margin-bottom: 175px;
+}
+
+.menu{
+    display: flex;
+    flex-wrap: wrap;/*адаптємо під вузькі екрани - пункти меню при стисненні перходять на наступний рядок*/
+}
+.menu li a{
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.transparent__btn{
+    padding: 10px 30px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.875rem;
+    border: 1px solid #fff;
+    border-radius: 6px;
+}
+.header__content{
+    text-align: center;
+    color: #fff;
+}
+.header__content h1{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 4.5rem;
+    margin-bottom: 40px;
+}
+.header__content h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-bottom: 60px;
+}
+.white__btn{
+    padding: 10px 30px;
+    background: #fff;
+    color: #ED4C5C;;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.875rem;
+    border-radius: 6px;
+}
+.about__wrap{
+    max-width: 1110px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+.about__block{
+    display: flex;
+}
+.about__block__left, .about__block__right{
+    width: 40%;
+    margin-right: 10%;
+    align-self: center;/*центрування блоків по горизонталі*/
+}
+.about__block__left h2{
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+
+}
+.about__block__left p{
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.posibilities__wrap{
+    background: #FAFAFA;
+    padding: 70px 0;
+}
+
+/* .posibilities__wrap > h2{безпосередній дочірний блок > h2 */
+    .posibilities__wrap h2{
+    text-align: center;
+    font-weight: 500;
+    font-size: 2.25rem;
+    margin-bottom: 4rem;
+}
+.posibilities__block{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.posibilities__block__item{
+    max-width: 350px;
+    text-align: center;
+    color: #101010;
+    display: flex;/*блок img з txt стає flex елемнетом*/
+    flex-direction: column;/*flex елементи розташовуються у колонку*/
+
+}
+
+.posibilities__block__txt{
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px 20px 1px 20px;/*внутрішні відступи*/
+    margin: -95px 30px 0 30px;/*зовнішні відступи блоку*/
+    z-index: 1;/*блок з текстом стає на передньому плані*/
+    position: relative;
+    flex-grow: 1;/*flex-grow визначає як багато вільного простору у flex-контейнері має бути призначено поточному елементу. Якщо елементи(блоки) мають однаковий коефіцієнт flex-grow, то всі вони отримають однакову частку вільного простору*/
+}
+.posibilities__block__txt h3{
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+.posibilities__block__txt p{
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+.tech__wrap{
+    padding: 70px 0;
+}
+.tech__wrap h2{
+    text-align: center;
+    font-weight: 500;
+    font-size: 2.25rem;
+    margin-bottom: 4rem;
+}
+.tech__block{
+    display: flex;
+    justify-content: space-between;
+}
+.tech__block__item{
+    max-width: 200px;
+    text-align: center;
+    color: #101010;
+}
+
+.tech__block__item header{
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 120px;
+    color: rgba(16, 16, 16, 0.08);
+    margin-bottom: 1rem;
+    position: relative;
+}
+.tech__block__item img{
+    position: absolute;
+    bottom: 0;/*позиція елемента(img) від низу*/
+    left: 50%;/*зміщуємо вліво елементб але ві стає по середині блоку ВІДНОСНО СВОЄЇ ЛІВОЇ СТОРОНИ*/
+    transform: translateX(-50%);/*тому ми зміщуємо елемент вліво по осі x на 50%*/
+}
+.tech__block__item h3{
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+.tech__block__item p{
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+.saving__wrap{
+    background: #ED4C5C;
+    padding: 100px 0;
+}
+.saving__block{
+    display: flex;
+}
+.saving__block__left, .saving__block__right{
+    width: 40%;
+    margin-right: 10%;
+    align-self: center;/*центрування блоків по горизонталі*/
+}
+.saving__block__left h2{
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: #FFFFFF;
+}
+.saving__block__left p{
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+.saving__block__left__icon{
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+}
+.saving__block__right img{
+    border-radius: 15px;
+}
+.contact__wrap{
+    padding: 100px 0;
+}
+.contact__block{
+    display: flex;
+}
+.contact__block__left{
+    width: 40%;
+    margin-right: 10%;
+    align-self: center;/*центрування блоків по горизонталі*/
+}
+.contact__block__right{
+    width: 50%;
+}
+.contact__block__left h2{
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+.contact__block__left p{
+    font-size: 0.875rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.input__txt{
+    display: block;
+    color: rgba(19, 39, 67, 0.5);
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 20px 30px;
+    margin-bottom: 1rem;
+    width: 100%;
+    outline: none;/*підсвітка при введенні тексту в полі input*/
+}
+.red__btn{
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: #ED4C5C;
+    border: 1.5px solid #ED4C5C;
+    border-radius: 6px;
+    padding: 10px 30px;
+    cursor: pointer;
+}
+@media (max-width:800px){
+    /* АДАПТАЦІЯ header */
+    .header__wrap__color{
+        padding-top: 20px;
+    }
+    .header__top{
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    .header__top__logo{
+        order: 1;/*визначає порядок, що використовується для розміщення flex елементів у їх flex контейнері*/
+        align-self: flex-start;
+    }
+    .header__top__menu{
+        order: 3;
+    }
+    .header__top_button{
+        order: 2;
+        align-self: flex-end;
+        margin: -23px 0 50px 0;
+    }
+    .menu li{
+        margin-bottom: 15px;
+    }
+    .menu{
+        justify-content: center;
+    }
+    .header__content h1{
+        font-weight: 500;
+        font-size: 3.5rem;
+    }
+    /* АДАПТАЦІЯ section about*/
+    .about__block{
+        flex-direction: column-reverse;
+    }
+    .about__block__left, .about__block__right{
+        width: 100%;
+        margin: 0 0 2rem 0;
+    }
+    .about__block__left{
+       padding: 0 15px;
+    }
+    .about__block__right img{
+        margin: 0 auto;
+    }
+    /* АДАПТАЦІЯ section posibilities */
+    .posibilities__block{
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;/*центрування flex елемента по вертикальній осі*/
+    }
+    /* АДАПТАЦІЯ section tech */
+    .tech__block{
+        flex-wrap: wrap;/*якщо елементи не поміщаються у рядок, то вони переносяться на новий рядок*/
+        justify-content: space-around;
+    }
+    .tech__block__item{
+       max-width: 40%;
+    }
+    /* АДАПТАЦІЯ section saving*/
+    .saving__block{
+        flex-direction: column-reverse;
+    }
+    .saving__block__left, .saving__block__right{
+        width: 100%;
+        margin: 0 0 2rem 0;
+    }
+
+    .saving__block__right img{
+        margin: 0 auto;
+    }
+    /* АДАПТАЦІЯ section contact*/
+    .contact__block{
+        flex-direction: column;
+    }
+    .contact__block__left{
+        width: 100%;
+        margin: 0 0 2rem ;
+        align-self: center;
+    }
+    .contact__block__right{
+        width: 70%;
+        margin-left: 0;
+    }
+}
+@media (max-width:600px){
+    .tech__block__item{
+        max-width: 80%;
+     }
+}
+@media (max-width:400px){
+    .header__content h1{
+        font-size: 2rem;
+    }
+    .contact__block__right{
+        width: 100%;
+    }
+    .about__block__left h2, .contact__block__left h2, .posibilities__wrap h2, .tech__wrap h2, .saving__block__left h2{
+        font-size: 1.5rem;
+    }
+}
+
